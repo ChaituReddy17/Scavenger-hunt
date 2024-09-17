@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Explorer - Clue 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Clue 1: The Origins</h1>
+        <p>Welcome, <span id="playerName"></span>! Your journey begins here.</p>
+        <p>Solve this clue: "Where the first computer was born lies your answer."</p>
+        <p>(Hint: Find the ENIAC computer)</p>
+
+        <div id="clue1Result" style="display:none;">
+            <p>Correct! You found the ENIAC. Your next challenge awaits in the world of encryption.</p>
+            <button id="nextClue">Proceed to Next Clue</button>
+        </div>
+
+        <input type="text" id="clueInput" placeholder="Type your answer here">
+        <button id="submitClue">Submit</button>
+    </div>
+
+    <script>
+        // Load player name from localStorage
+        document.getElementById('playerName').textContent = localStorage.getItem('playerName');
+
+        // Submit clue answer
+        document.getElementById('submitClue').addEventListener('click', function() {
+            const answer = document.getElementById('clueInput').value.toLowerCase();
+            if (answer === 'eniac') {
+                document.getElementById('clue1Result').style.display = 'block';
+            } else {
+                alert('Incorrect answer, try again!');
+            }
+        });
+
+        // Proceed to the next clue
+        document.getElementById('nextClue').addEventListener('click', function() {
+            window.location.href = 'clue2.html';
+        });
+    </script>
+</body>
+</html>
