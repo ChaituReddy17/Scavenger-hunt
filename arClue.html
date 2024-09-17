@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Explorer - AR Clue Hunt</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tech Explorer - Find the Clue</h1>
+        <p>Use your camera to search the space for hidden clues.</p>
+
+        <!-- AR Scene -->
+        <a-scene embedded arjs>
+            <!-- Image Target Marker (You can replace this with a custom marker) -->
+            <a-marker preset="hiro">
+                <!-- 3D Object/Clue to display when marker is found -->
+                <a-box position="0 0.5 0" material="color: yellow;"></a-box>
+                <a-text value="Clue 1: ENIAC" position="0 1 0" scale="2 2 2"></a-text>
+            </a-marker>
+
+            <!-- Add a camera for AR view -->
+            <a-entity camera></a-entity>
+        </a-scene>
+    </div>
+
+    <script>
+        // Load player name from localStorage
+        const playerName = localStorage.getItem('playerName');
+        if (!playerName) {
+            window.location.href = 'index.html'; // Redirect if no player name
+        }
+
+        // Add functionality for finding clues (e.g., after detecting the marker)
+        // You can customize this part to trigger events when the marker is found
+    </script>
+</body>
+</html>
